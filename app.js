@@ -1,16 +1,17 @@
 //const express = require('express'); //import express at node modules
-import "core-js";
+//import "core-js";
 import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-Parser";
 //import { userRouter } from "./router";//default로 export한게 아님
+import { localMiddleware } from "./middlewares";
+import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
-import routes from "./routes";
 
-const app = express(); //execute
+const app = express(); //execute express 실행한 결과를 상수로 만듬
 
 //서버 생성
 //const PORT = 4000;
@@ -33,12 +34,13 @@ const betweenHome =(req, res, next) => {
 
 //route 생성
 //app.use(betweenHome);// 순서가 중요함!
+app.use(helmet());//보안
+app.set("view engine", "pug");
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({extends: true}));
-app.use(helmet());//보안
 app.use(morgan("dev"));//log 기록 남겨줌
-
+app.use(localMiddleware);//전역 범위에 변수 추가
 //유일하게 독점적으로 URL을 다루는 방법
 app.use(routes.home, globalRouter);//join, search, 
 app.use(routes.users, userRouter);//router를 이용해서 쪼갤 수 있음
