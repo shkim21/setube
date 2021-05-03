@@ -1,4 +1,8 @@
-export const home = (req, res) => res.render("home", { pageTitle: "Home"});//views 폴더에서 파일명이 home이고 확장자가 pug인 템플릿 파일을 찾은 후 보여줄거임
+import {videos} from "../db"
+
+export const home = (req, res) => {
+    res.render("home", { pageTitle: "Home", videos});//views 폴더에서 파일명이 home이고 확장자가 pug인 템플릿 파일을 찾은 후 보여줄거임
+};
 
 export const search = (req, res) => {
     const {
@@ -6,8 +10,6 @@ export const search = (req, res) => {
     } = req;
     res.render("search", {pageTitle: "Search", searchingBy});//template가 보여주도록. tab 창에 보임
 };
-
-export const videos = (req, res) => res.render("videos", {pageTitle: "Videos"});
 
 export const upload = (req, res) => res.render("upload", {pageTitle: "Upload"});
 
