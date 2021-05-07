@@ -4,9 +4,9 @@ export const videos = [
     {
         id: 32232526,
         title: "Video awesome",
-        descripton: "This is something I love",
+        description: "This is something I love",
         views: 124,
-        videoFile: "https://archive.org/details/BigBuckBunny_124",
+        videoFile: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
         creator: {
             id: 1211134,
             name: "Sehyeon",
@@ -16,9 +16,9 @@ export const videos = [
     {
         id: 322432,
         title: "Video nice",
-        descripton: "This is something I love",
+        description: "This is something I love",
         views: 124,
-        videoFile: "https://archive.org/details/BigBuckBunny_124",
+        videoFile: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
         creator: {
             id: 1211134,
             name: "Sehyeon",
@@ -28,9 +28,9 @@ export const videos = [
     {
         id: 32788626,
         title: "Video perfect",
-        descripton: "This is something I love",
+        description: "This is something I love",
         views: 124,
-        videoFile: "https://archive.org/details/BigBuckBunny_124",
+        videoFile: "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
         creator: {
             id: 1211134,
             name: "Sehyeon",

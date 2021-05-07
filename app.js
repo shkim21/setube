@@ -37,10 +37,19 @@ const betweenHome =(req, res, next) => {
 app.use(helmet());//보안
 app.set("view engine", "pug");
 app.use(cookieParser());
-app.use(express.json());
+app.use(express.json());//페이지에서 가입할 때 전송한 정보를 볼 수 있게 해줌. 가져올 수 있음.
 app.use(express.urlencoded({extends: true}));
 app.use(morgan("dev"));//log 기록 남겨줌
 app.use(localMiddleware);//전역 범위에 변수 추가
+
+app.use(function (req, res, next) {
+    res.setHeader(
+    "Content-Security-Policy",
+    "script-src 'self' https://archive.org"
+    );
+    return next();
+    });
+
 //유일하게 독점적으로 URL을 다루는 방법
 app.use(routes.home, globalRouter);//join, search, 
 app.use(routes.users, userRouter);//router를 이용해서 쪼갤 수 있음
